@@ -17,8 +17,18 @@ $how_many = $_POST ['hownmany'];
 $alien_description = $_POST ['aliendescription'];
 $what_they_did = $_POST ['whattheydid'];
 $fang_spoted = $_POST['fangspotted'];
-$comments = $_POST['other'];
 $email = $_POST ['email'];
+$comments = $_POST['other'];
+
+$to = 'juanm_ramallo@hotmail.com';
+$subject = 'Aliens Abduced Me - Report an Abduction';
+$msg = "$name was abducted $when_it_happened and was for $how_long.\n" .
+"Number of aliens: $how_many\n" .
+"Aliens description: $alien_description\n" .
+"What they did: $what_they_did\n" .
+"Fang spotted: $fang_spotted\n" .
+"Other comments: $other";
+mail($to, $subject, $msg, 'From:'.$email);
 
 echo ' Thanks for submitting the form. <br>';
 echo 'You were abducted '. $when_it_happened;
